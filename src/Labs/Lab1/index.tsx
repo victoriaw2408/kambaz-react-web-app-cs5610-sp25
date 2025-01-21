@@ -2,7 +2,7 @@ export default function Lab1() {
     return (
         <div>
             <h2> Lab 1</h2>
-            {/* <h2>Lab 1</h2> */}
+            {/* <h2>Lab 1</h2>
             <h3>HTML Examples</h3>
             <div id="wd-h-tag">
                 <h4>Heading Tags</h4>
@@ -142,7 +142,7 @@ export default function Lab1() {
 
 
 
-            </div>
+            </div> */}
         </div>
     );
 }
