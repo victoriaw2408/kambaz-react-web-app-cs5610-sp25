@@ -127,7 +127,6 @@ export default function Lab1() {
                 <label htmlFor="scifi">Sci-Fi</label> <br />
                 <input id="horror" type="radio" name="radio-genre"/> 
                 <label htmlFor="horror">Horror</label> <br />
-
                 <label>Favorite color:</label><br />
                 <input id="red" type="radio" name="color"/> 
                 <label htmlFor="red">Red</label> <br />
