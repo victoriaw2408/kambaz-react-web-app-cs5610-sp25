@@ -4,7 +4,10 @@ export default function AssignmentEditor() {
       <h3> <label htmlFor="wd-name">Assignment Name</label> </h3>
       <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
       <textarea id="wd-description">
-        The assignment is available online Submit a link to the landing page of
+        The assignment is available online Submit a link to the landing page of your Web application
+        running on Netlify. The landing page should include the following: Your full name and section 
+        Links to each of the lab assignments Link to the Kanbas application Links to all relevant source code repositories
+        The Kanbas application should include a link to navigate back to the landing page.
       </textarea>
       <br />
       <table>
@@ -69,7 +72,7 @@ export default function AssignmentEditor() {
           <label htmlFor="wd-file-upload">File Uploads</label>
         </td>
         <br />
-        
+
         <tr>
           <td align="right" valign="top">
 
