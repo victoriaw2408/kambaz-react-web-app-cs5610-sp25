@@ -263,11 +263,11 @@ export default function Lab1() {
                     id="wd-text-fields-dob" /><br />
 
                 <h4>Anchor tag</h4>
-                Please
+                Please&nbsp;
                 <a href="https://www.lipsum.com" id="wd-lipsum">click here</a>
                 to get dummy text<br />
                 <h4>Anchor tag</h4>
-                Please 
+                Please&nbsp;
                 <a href="https://github.com/victoriaw2408/kambaz-react-web-app-cs5610-sp25" id="wd-lipsum">click here</a>
                 to see my github<br />
 
