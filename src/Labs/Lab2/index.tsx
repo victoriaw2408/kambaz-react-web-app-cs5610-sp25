@@ -13,7 +13,6 @@ import Float from "./Float.tsx";
 import GridLayout from "./GridLayout.tsx";
 import Flex from "./Flex.tsx";
 import ReactIconsSampler from "./ReactIcons.tsx";
-import { BsBootstrap } from "react-icons/bs";
 import BootstrapGrids from "./BootstrapGrids.tsx";
 import ScreenSizeLabel from "./ScreenSizeLabel.tsx";
 import BootstrapTables from "./BootstrapTables.tsx";
