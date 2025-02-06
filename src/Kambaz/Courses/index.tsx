@@ -2,13 +2,13 @@ import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments"
-import Assignment from "./Assignment";
-import People from "./People";
 import AssignmentEditor from "./Assignments/Editor";
-
-
 import { Navigate, Route, Routes } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
+import PeopleTable from "./PeopleTable";
+import Zoom from "./Zoom";
+import Quizzes from "./Quizzes";
+import Piazza from "./Piazza";
 export default function Courses() {
     return (
         <div id="wd-courses">
@@ -28,8 +28,14 @@ export default function Courses() {
                         <Route path="Modules" element={<Modules />} />
                         <Route path="Assignments" element={<Assignments />} />
                         <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-                        <Route path="Assignments/:aid" element={<Assignment />} />
-                        <Route path="People" element={<People />} />
+                        <Route path="People" element={<PeopleTable />} />
+                        <Route path="Quizzes" element={<Quizzes />} /> 
+                        <Route path="Zoom" element={<Zoom />} /> 
+                        <Route path="Piazza" element={<Piazza />} /> 
+
+
+
+
                     </Routes>
                 </div></div>
 

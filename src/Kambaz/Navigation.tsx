@@ -3,10 +3,11 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
+import { ListGroup } from "react-bootstrap";
 export default function KambazNavigation() {
   return (
-    <div id="wd-kambaz-navigation" style={{ width: 120 }}
-      className="list-group rounded-0  position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2">
+    <ListGroup id="wd-kambaz-navigation" style={{ width: 120 }} 
+      className="list-group rounded-0  position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2" >
       <a id="wd-neu-link" target="_blank"
         href="https://www.northeastern.edu/"
         className="list-group-item bg-black border-0 text-center">
@@ -42,11 +43,11 @@ export default function KambazNavigation() {
         className="fs-1 text-danger" /><br />
         Inbox </Link>
 
-        <Link to="/Kambaz/Labs" id="wd-labs-link"
+        <Link to="/Labs" id="wd-labs-link"
         className="list-group-item text-white
                     bg-black text-center border-0">
         <LiaCogSolid
        className="fs-1 text-danger" /><br />
         Labs </Link>
-    </div>);
+    </ListGroup>);
 }

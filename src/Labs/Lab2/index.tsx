@@ -1,6 +1,5 @@
 import "./index.css";
 import { Container } from "react-bootstrap";
-
 import ForegroundColors from "./ForegroundColors.tsx";
 import BackgroundColors from "./BackgroundColors.tsx";
 import Borders from "./Borders.tsx";

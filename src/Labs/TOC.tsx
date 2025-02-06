@@ -16,7 +16,7 @@ export default function TOC() {
        <Nav.Link href="#/Labs/Lab3">Lab 3</Nav.Link>
      </Nav.Item>
      <Nav.Item>
-       <Nav.Link href="#/Kambaz">Kambaz</Nav.Link>
+       <Nav.Link href="#/Kambaz/Dashboard">Kambaz</Nav.Link>
      </Nav.Item>
      <Nav.Item>
        <Nav.Link href="https://github.com/victoriaw2408">My GitHub</Nav.Link>
