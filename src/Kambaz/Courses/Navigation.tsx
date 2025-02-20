@@ -1,10 +1,7 @@
-import { ListGroup } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { courses } from "../Database";
 import {useParams } from "react-router";
 
 export default function CourseNavigation() {
-  const { pathname } = useLocation();
   const location = useLocation();
   
   const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];

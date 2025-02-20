@@ -4,21 +4,20 @@ import * as db from "../../Database";
 
 export default function AssignmentEditor() {
   const { cid } = useParams();
-  const assignments = db.assignments;
-
+  const assignments = db.assignments ;
 
   return (
     <div>
 
       <ul id="wd-assignments-editor" className="list-group rounded-0">
         {assignments
-          .filter((assignment) => assignment.course === cid)
-          .map((assignment) => (
+          .filter((assignment: any) => assignment.course === cid)
+          .map((assignment: any ) => (
             <li key={assignment._id}>
               <div>
                 <FormGroup className="mb-3" controlId="wd-name">
                   <FormLabel>Assignment Name</FormLabel>
-                  <FormControl type="text" value={assignment._id} />
+                  <FormControl type="text" value={assignment.title} />
                 </FormGroup>
                 <div className="form-control" id="wd-description">
                   <p>The assignment is <text className="text-danger">available online</text></p>

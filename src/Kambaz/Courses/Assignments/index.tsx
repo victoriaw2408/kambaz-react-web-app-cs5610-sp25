@@ -1,4 +1,4 @@
-import { Button, FormControl } from "react-bootstrap";
+import { Button, FormControl, ListGroup } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
@@ -11,11 +11,11 @@ import * as db from "../../Database";
 
 export default function Assignments() {
     const { cid } = useParams();
-    const assignments = db.assignments;
+    const assignments = db.assignments.filter((assignment) => assignment.course === cid);
 
     return (
         <div>
-            <div id="wd-assignments" className="p-2.5 position-relative mb-4 d-flex gap-2 align-items-center">
+            <div className="p-2.5 position-relative mb-4 d-flex gap-2 align-items-center">
                 <IoIosSearch className="position-absolute top-50 translate-middle-y ms-3" />
                 <FormControl type="search" placeholder="Search..." className="ps-5" />
 
@@ -28,46 +28,40 @@ export default function Assignments() {
                     Assignment
                 </Button>
             </div>
-
-            <ul id="wd-assignments" className="list-group rounded-0">
-                
+            <div id="wd-assignments" className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center gap-2">
+                <BsGripVertical className="fs-3" />
+                <span className="fw-bold">Assignments </span>
+                <div className="ms-auto d-flex align-items-center">
+                    <ModuleControlButtons />
+                    <Button className="wd-rounded-corners-all-around wd-border-black wd-border-solid btn btn-outline-dark btn-light ms-2">
+                        40% of Total
+                    </Button>
+                    <IoEllipsisVertical className="fs-4 ms-2" />
+                </div>
+            </div>
+            <ListGroup id="wd-assignments" className="list-group rounded-0">
                 {assignments
-                    .filter((assignment) => assignment.course === cid)
-                    .map((assignment, idx) => (
-                        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray" key={assignment._id}>
-                            <div className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center gap-2">
-                                <BsGripVertical className="fs-3" />
-                                <span className="fw-bold">Assignments {idx + 1}: </span>
-                                {assignment.title}
-                                <div className="ms-auto d-flex align-items-center">
-                                    <ModuleControlButtons />
-                                    <Button className="wd-rounded-corners-all-around wd-border-black wd-border-solid btn btn-outline-dark btn-light ms-2">
-                                        40% of Total
-                                    </Button>
-                                    <IoEllipsisVertical className="fs-4 ms-2" />
-                                </div>
-                            </div>
+                    .map((assignment: any ) => (
                             <div className="wd-lessons rounded-0">
-                                <div className="wd-lesson p-3 ps-1">
+                                <ListGroup.Item className="wd-lesson p-3 ps-1">
                                     <BsGripVertical className="me-2 fs-3" />
                                     <GrNotes className="me-2 fs-4" style={{ color: "green" }} />
                                     <a
-                                        href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
+                                        href={`#/Kambaz/Courses/${cid}/Assignments/${assignment.title}`}
                                         style={{ textDecorationLine: "none", color: "black" }}
                                         className="wd-assignment-link text-black link-underline link-underline-opacity-0">
-                                        {assignment._id}
+                                        {assignment.title}
                                     </a>
 
-                                            <LessonControlButtons />
-                                            <p className="wd-assignment-description ps-5">
-                                                <span style={{ color: "red" }}>Multiple Modules </span> | <strong>Not available until</strong> {assignment.startDate} at {assignment.startTime} |
-                                                <strong> Due</strong> {assignment.endDate} at {assignment.endTime} | {assignment.points}pts
-                                            </p>
-                                        </div>
+                                    <LessonControlButtons />
+                                    <p className="wd-assignment-description ps-5">
+                                        <span style={{ color: "red" }}>Multiple Modules </span> | <strong>Not available until</strong> {assignment.startDate} at {assignment.startTime} |
+                                        <strong> Due</strong> {assignment.endDate} at {assignment.endTime} | {assignment.points}pts
+                                    </p>
+                                </ListGroup.Item>
                             </div>
-                        </li>
                     ))}
-            </ul>
+            </ListGroup>
         </div>
     );
 }
