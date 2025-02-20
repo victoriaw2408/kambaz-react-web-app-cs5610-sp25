@@ -12,7 +12,6 @@ import * as db from "../../Database";
 export default function Assignments() {
     const { cid } = useParams();
     const assignments = db.assignments.filter((assignment) => assignment.course === cid);
-
     return (
         <div>
             <div className="p-2.5 position-relative mb-4 d-flex gap-2 align-items-center">
