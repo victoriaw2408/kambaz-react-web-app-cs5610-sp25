@@ -12,7 +12,7 @@ import SaveButton from "./SaveButton";
 export default function NewAssignmentEditor(
 ) {
 
-     const { cid, aid } = useParams();
+     const { cid } = useParams();
      const dispatch = useDispatch();
      // const assignments = db.assignments;
      const [assignmentTitle, setAssignmentTitle] = useState("");

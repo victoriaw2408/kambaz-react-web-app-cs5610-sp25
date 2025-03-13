@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Modal } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
-import { IoEllipsisVertical } from "react-icons/io5";
-import { useSelector } from "react-redux";
+
 import ModalDelete from "./ModalDelete";
 export default function DeleteButton({
      assignmentTitle,

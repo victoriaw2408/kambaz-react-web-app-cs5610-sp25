@@ -1,17 +1,13 @@
 import { FaPlus } from "react-icons/fa6";
 import { Button, Dropdown } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
-import { useSelector } from "react-redux";
+
 // import NewAssignmentEditor from "./NewAssignmentEditor.tsx";
 import { useState } from "react";
-import GreenCheckmark from "../Modules/GreenCheckmark";
-import ModuleEditor from "../Modules/ModuleEditor";
+
 import { useParams } from "react-router";
-import NewAssignmentEditor from "./NewAssignmentEditor";
 export default function AssignmentControls() {
    
-        const [show, setShow] = useState(false);
-     const handleClose = () => setShow(false);
+        const [, setShow] = useState(false);
      const handleShow = () => setShow(true); 
      const { cid } = useParams();
 

@@ -1,10 +1,8 @@
-import { Modal, FormControl, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Modal, Button } from "react-bootstrap";
 export default function ModalDelete({
   show,
   handleClose,
   confirmDelete,
-  assignmentTitle,
 }: {
   show: boolean;
   handleClose: () => void;

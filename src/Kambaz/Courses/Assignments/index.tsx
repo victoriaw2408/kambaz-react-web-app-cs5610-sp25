@@ -1,20 +1,15 @@
-import { Button, FormControl, ListGroup } from "react-bootstrap";
+import { FormControl, ListGroup } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import LessonControlButtons from "../Modules/LessonControlButtons";
-import ModuleControlButtons from "../Modules/ModuleControlButtons";
 import { GrNotes } from "react-icons/gr";
-import { IoEllipsisVertical } from "react-icons/io5";
-import { Link, useParams } from "react-router";
-import * as db from "../../Database";
+import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AssignmentControls from "./AssignmentControls";
 import { addAssignment, deleteAssignment, editAssignment, updateAssignment } from "./reducer";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { v4 as uuidv4 } from "uuid";
-import SaveButton from "./SaveButton";
 import DeleteButton from "./DeleteButton";
 
 
@@ -29,8 +24,6 @@ const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 const dispatch = useDispatch();
 
 
-const [show, setShow] = useState(false);
-const handleShow = () => setShow(true);
 const  [points, setPoints] = useState("");
 const  [until, setUntil] = useState("");
 const  [from, setFrom] = useState("");
@@ -154,7 +147,7 @@ if (assignments) {
                            
                             <LessonControlButtons />
 
-                            <DeleteButton assignmentTitle={assignment._id} deleteAssignment={(assignmentName) => {
+                            <DeleteButton assignmentTitle={assignment._id} deleteAssignment={() => {
                   dispatch(deleteAssignment(assignment._id))}}/>
                             <p className="wd-assignment-description ps-5">
                                 <span style={{ color: "red" }}>Multiple Modules </span> | <strong>Not available until</strong> {assignment.getAvailableUntil} |
