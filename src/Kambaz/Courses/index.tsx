@@ -9,12 +9,11 @@ import PeopleTable from "./PeopleTable";
 import Zoom from "./Zoom";
 import Quizzes from "./Quizzes";
 import Piazza from "./Piazza";
-import { courses } from "../Database";
 
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[]; }) {
     const { cid } = useParams();
     const course = courses.find((course) => course._id === cid);
-      const { pathname } = useLocation();
+    const { pathname } = useLocation();
  
     return (
         <div id="wd-courses">
@@ -47,6 +46,4 @@ export default function Courses() {
         </div>
     );
 }
-
-
 
