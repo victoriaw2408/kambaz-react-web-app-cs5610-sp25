@@ -1,7 +1,7 @@
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Row, Col, Button, Card, FormControl } from "react-bootstrap";
 import * as db from "./Database";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Dashboard({
       courses,

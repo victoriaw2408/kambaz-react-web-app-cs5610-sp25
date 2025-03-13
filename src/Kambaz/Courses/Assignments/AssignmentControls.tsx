@@ -1,5 +1,5 @@
 import { FaPlus } from "react-icons/fa6";
-import { Button, Dropdown } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 // import NewAssignmentEditor from "./NewAssignmentEditor.tsx";
 import { useState } from "react";
@@ -28,35 +28,8 @@ export default function AssignmentControls() {
                 <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
                 Group
             </Button>
-            {/* <div className="me-2 float-start" id="wd-search-bar">
-                    <FaSearch className="position-relative me-4" style={{ left: "15px"}} />
-                <input 
-                type="text"
-                placeholder="Search..."
-                className="search-input"/>
-                </div> */}
-                {/* <NewAssignmentEditor show={show} handleClose={handleClose} dialogTitle="Add Assignment"
-         assignmentName={assignmentName} setAssignmentName={setAssignmentName} addAssignment={addAssignment} /> */}
+           
                
             </div>
     );
 }
-{/* <div id="wd-assignment-modules-controls" className="text-nowrap">
-<Button variant="danger" size="lg" className="me-1 float-end" id="wd-add-assignment-btn"  onClick={handleShow}>  
-    <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-    Assignment
-</Button>
-<Button variant="secondary" size="lg" className="me-1 float-end" id="wd-add-group-btn">
-    <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-    Group
-</Button>
-<div className="me-2 float-start" id="wd-search-bar">
-        <FaSearch className="position-relative me-4" style={{ left: "15px"}} />
-    <input 
-    type="text"
-    placeholder="Search..."
-    className="search-input"/>
-    </div>
-    <NewAssignmentEditor show={show} handleClose={handleClose} dialogTitle="Add Assignment"
-assignmentName={assignmentName} setAssignmentName={setAssignmentName} addAssignment={addAssignment} />
-</div> */}

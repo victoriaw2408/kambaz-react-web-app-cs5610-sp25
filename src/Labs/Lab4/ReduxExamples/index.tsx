@@ -1,10 +1,7 @@
-import React from "react";
 import HelloRedux from "./HelloRedux";
 import CounterRedux from "./CounterRedux";
 import AddRedux from "./AddRedux";
-import todos from "./todos";
 import TodoForm from "./todos/TodoForm";
-import TodoItem from "./todos/TodoItem";
 import TodoList from "./todos/TodoList";
 
 export default function ReduxExamples() {

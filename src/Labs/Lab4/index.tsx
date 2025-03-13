@@ -9,7 +9,6 @@ import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import StringStateVariables from "./StringStateVariables";
-import ChildStateComponent from "./ChildStateComponent";
 
 import ReduxExamples from "./ReduxExamples";
 

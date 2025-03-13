@@ -33,7 +33,6 @@ import Highlight from "./Highlight";
 import AddPathParameters from "./AddPathParameters";
 import PathParameters from "./PathParameters";
 import { ListGroup } from "react-bootstrap";
-import todos from "../Lab4/ReduxExamples/todos";
 import { useSelector } from "react-redux";
 
 
