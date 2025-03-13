@@ -150,7 +150,7 @@ if (assignments) {
                             <DeleteButton assignmentTitle={assignment._id} deleteAssignment={() => {
                   dispatch(deleteAssignment(assignment._id))}}/>
                             <p className="wd-assignment-description ps-5">
-                                <span style={{ color: "red" }}>Multiple Modules </span> | <strong>Not available until</strong> {assignment.getAvailableUntil} |
+                                <span style={{ color: "red" }}>Multiple Modules </span> | <strong>Not available until</strong> {assignment.availableFrom} |
                                 <strong> Due</strong> {assignment.dueDate} | {assignment.points}pts
                             </p>
                         
