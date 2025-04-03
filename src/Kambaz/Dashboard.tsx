@@ -49,7 +49,6 @@ export default function Dashboard({
 
           <Row xs={1} md={5} className="g-4">
             {courses
-              .filter((c) => enrollments.some((e: { user: string; course: string }) => e.user === currentUser._id && e.course === c._id))
               .map((c) => (
                 <Col key={c._id} className="wd-dashboard-course" style={{ width: "300px" }}>
                   <Card>
