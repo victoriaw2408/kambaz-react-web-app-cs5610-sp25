@@ -29,11 +29,3 @@ export const deleteCourse = async (id: string) => {
   };
 
 
-
-export function createAssignmentForCourse(cid: string, newAssignment: { title: any; course: string; description: any; points: any; due: any; from: any; to: any; }) {
-    throw new Error("Function not implemented.");
-}
-// export function createAssignmentForCourse(cid: string, newAssignment: { name: string; course: string; }) {
-//     throw new Error("Function not implemented.");
-// }
-  
