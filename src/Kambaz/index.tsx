@@ -37,10 +37,10 @@ export default function Kambaz() {
     fetchCourses();
   }, [currentUser]);
 
-  const addNewCourse = async () => {
-    const newCourse = await userClient.createCourse(course);
-    setCourses([...courses, newCourse]);
-  };
+  // const addNewCourse = async () => {
+  //   const newCourse = await userClient.createCourse(course);
+  //   setCourses([...courses, newCourse]);
+  // };
 
   const addCourse = () => {
     const newCourse = { ...course, _id: uuidv4() };
@@ -54,7 +54,7 @@ export default function Kambaz() {
   };
 
   const deleteCourse = async (courseId: string) => {
-    const status = await courseClient.deleteCourse(courseId);
+    // const status = await courseClient.deleteCourse(courseId);
     setCourses(courses.filter((course) => course._id !== courseId));
   };
 

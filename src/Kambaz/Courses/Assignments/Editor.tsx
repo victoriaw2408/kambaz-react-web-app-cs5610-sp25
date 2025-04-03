@@ -1,6 +1,6 @@
 import { Button, Card, Col, Form, FormCheck, FormControl, FormGroup, FormLabel, FormSelect, Row } from "react-bootstrap";
 import { useParams } from "react-router";
-import { updateAssignment, addAssignment } from "./reducer";
+import { addAssignment } from "./reducer";
 import { useEffect, useState } from "react";
 import SaveButton from "./SaveButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,21 +20,21 @@ export default function AssignmentEditor() {
 
   const dispatch = useDispatch();
 
-  const handleAddAssignment = () => {
-    const newAssignment = {
-      _id: aid || uuidv4(),
-      title: assignmentName,
-      course: cid,
-      description: description, // Fix here
-      points: points,
-      dueDate: due,
-      getAvailableFrom: from,
-      getAvailableUntil: until,
-      assignment: aid,
-    };
-    dispatch(updateAssignment(newAssignment));
+  // const handleAddAssignment = () => {
+  //   const newAssignment = {
+  //     _id: aid || uuidv4(),
+  //     title: assignmentName,
+  //     course: cid,
+  //     description: description, // Fix here
+  //     points: points,
+  //     dueDate: due,
+  //     getAvailableFrom: from,
+  //     getAvailableUntil: until,
+  //     assignment: aid,
+  //   };
+  //   dispatch(updateAssignment(newAssignment));
 
-  };
+  // };
 
 
   // Find the assignment based on the ID from the URL
@@ -192,7 +192,7 @@ export default function AssignmentEditor() {
                 href={`#/Kambaz/Courses/${cid}/Assignments/`}
                 style={{ textDecorationLine: "none", color: "black" }}
                 className="wd-assignment-link text-black link-underline link-underline-opacity-0"> */}
-          <SaveButton addAssignment={handleAddAssignment} />
+          <SaveButton addAssignment={createAssignmentForCourse} />
 
           {/* </a> */}
           {/* <a 

@@ -45,24 +45,24 @@ export default function Assignments() {
         console.log("Updated Assignments:", assignments);
     }, [assignments]);
 
-    const handleAddAssignment = () => {
-        const newAssignment = {
-            _id: uuidv4(),
-            title: assignmentName,
-            course: cid,
-            description: description,
-            points: points,
-            dueDate: due,
-            getAvailableFrom: from,
-            getAvailableUntil: until,
-            assignment: aid,
-        };
-        if (assignments) {
-            dispatch(updateAssignment(newAssignment));
-        } else {
-            dispatch(addAssignment(newAssignment));
-        }
-    };
+    // const handleAddAssignment = () => {
+    //     const newAssignment = {
+    //         _id: uuidv4(),
+    //         title: assignmentName,
+    //         course: cid,
+    //         description: description,
+    //         points: points,
+    //         dueDate: due,
+    //         getAvailableFrom: from,
+    //         getAvailableUntil: until,
+    //         assignment: aid,
+    //     };
+    //     if (assignments) {
+    //         dispatch(updateAssignment(newAssignment));
+    //     } else {
+    //         dispatch(addAssignment(newAssignment));
+    //     }
+    // };
     const fetchAssignments = async () => {
         const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
         dispatch(setAssignments(assignments));
@@ -147,7 +147,7 @@ export default function Assignments() {
                                     href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
                                     style={{ textDecoration: "none", color: "black" }}
                                     className="wd-assignment-link text-black link-underline-opacity-0"
-                                    onClick={handleAddAssignment}
+                                    onClick={createAssignmentForCourse}
 
                                 >
                                     {assignment.title}

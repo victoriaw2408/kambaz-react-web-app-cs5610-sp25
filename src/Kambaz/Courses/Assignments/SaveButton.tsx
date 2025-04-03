@@ -1,43 +1,19 @@
 import { Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
-import { addAssignment, updateAssignment } from "./reducer";
-import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
-import * as assignmentsClient from "./client";
+
 
 export default function SaveButton({ addAssignment }: {
     addAssignment: () => void
 }) {
     // export default function AssignmentControls() {
-    const { cid, aid } = useParams();
+    const { cid } = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const handleSave = () => {
         addAssignment(); // Pass the new assignment data
         navigate(`/Kambaz/Courses/${cid}/Assignments`);
 
     };
-    const [assignmentName, setAssignmentName] = useState("");
-    const { assignments } = useSelector((state: any) => state.assignmentsReducer);
-    const [points, setPoints] = useState("");
-    const [until, setUntil] = useState("");
-    const [from, setFrom] = useState("");
-    const [due, setDue] = useState("");
-    const [description, setDescription] = useState("");
-
-    useEffect(() => {
-        const assignment = assignments.find((a: any) => a.course === cid);
-        if (assignment) {
-            setAssignmentName(assignment.title);
-            setDescription(assignment.description);
-            setPoints(assignment.points);
-            setDue(assignment.dueDate);
-            setFrom(assignment.getAvailableFrom);
-            setUntil(assignment.getAvailableUntil);
-        }
-    }, [assignments, cid]);
-
+   
     // const createAssignmentForCourse = async () => {
     //     if (!cid) return;
     //     const newAssignment = {
