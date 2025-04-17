@@ -1,11 +1,12 @@
 import { Button, Card, Col, Form, FormCheck, FormControl, FormGroup, FormLabel, FormSelect, Row } from "react-bootstrap";
 import { useParams } from "react-router";
-import { addAssignment } from "./reducer";
 import { useEffect, useState } from "react";
 import SaveButton from "./SaveButton";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import * as assignmentsClient from "./client";
+import { updateAssignment } from "./reducer";
+
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
@@ -67,7 +68,8 @@ export default function AssignmentEditor() {
     };
 
     const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
-    dispatch(addAssignment(assignment));
+    dispatch(updateAssignment(assignment));
+    
   };
 
   return (
@@ -165,14 +167,14 @@ export default function AssignmentEditor() {
                         <Row>
                           <Col sm={6}>
                             <FormLabel><strong>Available From</strong></FormLabel>
-                            <FormControl type="date"  value={from} onChange={(e) => setFrom(e.target.value)} placeholder={assignments?.getAvailableFrom} />
+                            <FormControl value={from} type="date"  onChange={(e) => setFrom(e.target.value)} placeholder={assignments?.getAvailableFrom} />
 
                           </Col>
                           <FormGroup>
 
                             <Col sm={6}>
                               <FormLabel><strong>Until</strong></FormLabel>
-                              <FormControl type="date" value={until} onChange={(e) => setUntil(e.target.value)}  />
+                              <FormControl  value={until} type="date" onChange={(e) => setUntil(e.target.value)}  />
 
                             </Col>
                           </FormGroup>
@@ -192,7 +194,7 @@ export default function AssignmentEditor() {
                 href={`#/Kambaz/Courses/${cid}/Assignments/`}
                 style={{ textDecorationLine: "none", color: "black" }}
                 className="wd-assignment-link text-black link-underline link-underline-opacity-0"> */}
-          <SaveButton addAssignment={createAssignmentForCourse} />
+          <SaveButton updateAssignment={createAssignmentForCourse} />
 
           {/* </a> */}
           {/* <a 

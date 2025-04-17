@@ -171,7 +171,7 @@ export default function NewAssignmentEditor(
                                    </td >
                                    <td className="center-box-next">
                                         <label htmlFor="wd-available-until">Until</label> <br />
-                                        <div className="half-size"> <FormControl type="date" value={until} onChange={(e) => setUntil(e.target.value)} id="wd-available-until" /><br /></div>
+                                        <div className="half-size"> <FormControl className="small-dropdown-2" type="date" value={until} onChange={(e) => setUntil(e.target.value)} id="wd-available-until" /><br /></div>
 
                                    </td>
                               </tr>

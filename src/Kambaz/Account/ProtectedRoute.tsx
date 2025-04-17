@@ -5,9 +5,9 @@ export default function ProtectedRoute({ children }: { children: any}) {
   if (currentUser) {
     return children;
   } 
-  if (currentUser?.role !== "FACULTY") {
-    return null; 
-  }
+  // if (currentUser?.role !== "FACULTY") {
+  //   return null; 
+  // }
 
 
   else {

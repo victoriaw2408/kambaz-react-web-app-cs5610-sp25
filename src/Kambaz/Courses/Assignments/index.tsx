@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AssignmentControls from "./AssignmentControls";
-import { addAssignment, deleteAssignment, editAssignment, updateAssignment, setAssignments } from "./reducer";
+import { addAssignment, deleteAssignment, updateAssignment, setAssignments } from "./reducer";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { v4 as uuidv4 } from "uuid";
 import DeleteButton from "./DeleteButton";
@@ -63,16 +63,26 @@ export default function Assignments() {
     //         dispatch(addAssignment(newAssignment));
     //     }
     // };
+    // const fetchAssignments = async () => {
+    //     const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+    //     dispatch(setAssignments(assignments));
+    // };
+    // useEffect(() => {
+    //     fetchAssignments();
+    // }, []);
     const fetchAssignments = async () => {
-        const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+        const assignments = await assignmentsClient.findAssignmentsForCourse(cid!);
         dispatch(setAssignments(assignments));
     };
     useEffect(() => {
         fetchAssignments();
-    }, []);
+    }, [cid]);
 
+  
+     
     const createAssignmentForCourse = async () => {
         if (!cid) return;
+        const existingAssignment = assignments.find((a: any) => a._id === aid);
         const newAssignment = {
             _id: uuidv4(),
             title: assignmentName,
@@ -84,8 +94,10 @@ export default function Assignments() {
             getAvailableUntil: until,
             assignment: aid,
         };
-        const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
-        dispatch(addAssignment(assignment));
+            const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
+            dispatch(updateAssignment(assignment));
+        
+        
     };
 
     const removeAssignment = async (assignmentId: string) => {
@@ -97,6 +109,12 @@ export default function Assignments() {
         dispatch(updateAssignment(assignment));
       };
     
+
+ const updateAssignmentHandler = async (assignment: any) => {
+    await assignmentsClient.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
+ 
 
     return (
         <div >
@@ -113,15 +131,27 @@ export default function Assignments() {
                     <div className="wd-title p-3 ps-2 bg-secondary">
                         {!assignments.editing && assignments.name}
                         {assignments.editing && (
+                            // <FormControl className="w-50 d-inline-block"
+                            //     onChange={(e) =>
+                            //         dispatch(
+                            //             updateAssignment({ ...assignments, name: e.target.value })
+                            //         )
+                            //     }
+                            //     onKeyDown={(e) => {
+                            //         if (e.key === "Enter") {
+                            //             saveAssignment({ ...assignments, editing: false });
+
+                            //         }
+                            //     }}
+                            //     defaultValue={assignments.name} />
                             <FormControl className="w-50 d-inline-block"
                                 onChange={(e) =>
-                                    dispatch(
-                                        updateAssignment({ ...assignments, name: e.target.value })
-                                    )
+                                    updateAssignmentHandler({ ...assignments, name: e.target.value })
+                                    
                                 }
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter") {
-                                        saveAssignment({ ...assignments, editing: false });
+                                        updateAssignmentHandler({ ...assignments, editing: false });
 
                                     }
                                 }}
@@ -130,7 +160,9 @@ export default function Assignments() {
 
                         <AssignmentControlButtons assignmentId={assignments._id}
                             deleteAssignment={(assignmentId) => removeAssignment(assignmentId)}
-                            editAssignment={(assignmentId) => dispatch(editAssignment(assignmentId))} />
+                            // editAssignment={(assignmentId) => dispatch(editAssignment(assignmentId))
+                                
+                             />
                     </div>
                 </div>
             </div>
@@ -147,7 +179,7 @@ export default function Assignments() {
                                     href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
                                     style={{ textDecoration: "none", color: "black" }}
                                     className="wd-assignment-link text-black link-underline-opacity-0"
-                                    onClick={createAssignmentForCourse}
+                                    // onClick={saveAssignment}
 
                                 >
                                     {assignment.title}
